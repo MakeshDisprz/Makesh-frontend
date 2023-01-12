@@ -1,0 +1,19 @@
+.popup-modal{
+    position: fixed;
+    left: 35%;
+    right: 35%;
+    top: 40%;
+    bottom: 40%;
+    border-radius: 10px;
+    background-color: var(--gainsboro);
+    padding: 14px 20px;
+    z-index: 7;
+}
+
+.popup-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+}

@@ -1,0 +1,41 @@
+@import '../../../styles/colors';
+
+.cell-container {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.cell-container:hover {
+    background-color: var(--gainsboro);
+}
+
+.today {
+    background-color: var(--blue);
+}
+
+#active {
+    background-color: var(--papaya);
+}
+
+.date-cell {
+    grid-column: 3 / span 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+}
+
+.prev-month {
+    background-color: var(--palegold);
+    font-size: 12px;
+}
+
+.next-month {
+    background-color: var(--palegold);
+    font-size: 12px;
+}

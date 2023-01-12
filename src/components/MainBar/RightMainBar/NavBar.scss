@@ -1,0 +1,174 @@
+@import '../../../styles/colors';
+
+@mixin button-style{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    background-color: var(--gainsboro);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--gainsboro);
+    position: sticky;
+    top: 54.6px;
+    z-index: 5;
+}
+
+.navbar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.navbar-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    column-gap: 2px;
+}
+
+.viewbutton-container{
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 2px;
+}
+
+.button {
+    @include button-style;
+    padding: 2px 12px;
+    font-size: 17px;
+}
+
+.button:hover {
+    background-color: #dcdcdc;
+}
+
+.today-button {
+    @include button-style;
+    font-size: 14px;
+    padding: 1px 12px;
+}
+
+.today-button:hover {
+    background-color: #dcdcdc;
+}
+
+.date-container {
+    @include button-style;
+    font-size: 28px;
+    padding: 0px 12px;
+    background-color: #fff;
+}
+
+.date-container:hover {
+    background-color: #dcdcdc;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 2px;
+}
+
+.view-button {
+    @include button-style;
+    color: #000;
+    text-decoration: none;
+    padding: 1px 12px;
+}
+
+.view-button:hover {
+    background-color: #dcdcdc;
+}
+
+@media screen and (max-width:576px) {
+    .date-container{
+        font-size: 24px;
+        padding: 0px 8px;
+    }
+    .view-button{
+        font-size: 14px;
+        padding: 1px 8px;
+    }
+    .today-button{
+        font-size: 14px;
+        padding: 1px 8px;
+    }
+    .button{
+        font-size: 16px;
+        padding: 2px 8px;
+    }
+}
+
+@media screen and (max-width:476px) {
+    .date-container{
+        font-size: 20px;
+        padding: 0px 6px;
+    }
+    .view-button{
+        font-size: 13px;
+        padding: 1px 6px;
+    }
+    .today-button{
+        font-size: 13px;
+        padding: 1px 6px;
+    }
+    .button{
+        font-size: 15px;
+        padding: 2px 6px;
+    }
+}
+
+@media screen and (max-width:420px) {
+   
+    .date-container{
+        font-size: 16px;
+    }
+    .view-button{
+        font-size: 11px;
+    }
+    .today-button{
+        font-size: 11px;
+    }
+    .button{
+        font-size: 13px;
+    }
+
+    .navbar-left{
+        flex-direction: column;
+        row-gap: 5px;
+    }
+    .navbar-right{
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width:290px) {
+    .date-container{
+        font-size: 14px;
+    }
+    .view-button{
+        font-size: 10px;
+    }
+    .today-button{
+        font-size: 10px;
+    }
+    .button{
+        font-size: 12px;
+    }
+}

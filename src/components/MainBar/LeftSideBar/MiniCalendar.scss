@@ -1,0 +1,27 @@
+.calendar-container{
+    display: flex;
+    background-color: #B2B2B2;
+    border-radius: 5px;
+    padding: 8px;
+    width: 310px;
+}
+
+.container-top{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    row-gap: 4px;
+    column-gap: 1px;
+}
+
+
+@media screen and (max-width:496px) {
+    .calendar-container{
+        width:280px
+    }
+}
+@media screen and (max-width:320px) {
+    .calendar-container{
+        width:260px
+    }
+}

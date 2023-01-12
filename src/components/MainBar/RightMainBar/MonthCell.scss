@@ -1,0 +1,42 @@
+@import '../../../styles/colors';
+
+.month-cell{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--white);
+    border-collapse: collapse;
+}
+
+.week-days{
+    height: 30px;
+    border-bottom: 1px solid var(--gainsboro);
+}
+
+.month-cell:hover{
+    background-color: var(--gainsboro);
+}
+
+.today {
+    background-color: var(--papaya);
+}
+
+#active{
+    background-color: var(--blue);
+}
+
+.next-month {
+    background-color: var(--palegold);
+    font-size: 12px;
+}
+
+.prev-month {
+    background-color: var(--palegold);
+    font-size: 12px;
+}
+
+.eventname-container{
+    width: 100%;
+}

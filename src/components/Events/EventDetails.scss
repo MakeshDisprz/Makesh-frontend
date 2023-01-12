@@ -1,0 +1,89 @@
+@import '../../styles/colors';
+
+@mixin tool-tip {
+    position: absolute;
+    top: 18px;
+    display: none;
+}
+
+.event-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 18px;
+    border-radius: 8px;
+}
+
+.event-container p {
+    margin: 10px 0;
+}
+
+.event-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-icons {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 30px;
+}
+
+.event-input {
+    border: none;
+    border-radius: 2px;
+    background-color: var(--white);
+    padding: 7px 0;
+    width: 100%;
+}
+
+.event-icon {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.edit-icon {
+    @include tool-tip;
+}
+
+.delete-icon {
+    @include tool-tip;
+}
+
+.close-icon {
+    @include tool-tip;
+}
+
+.event-icon:hover .edit-icon {
+    display: block;
+}
+
+.event-icon:hover .delete-icon {
+    display: block;
+}
+
+.event-icon:hover .close-icon {
+    display: block;
+}
+
+.event-bottom {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 10px;
+}
+
+.event-button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.event-button:hover {
+    background-color: var(--pink);
+    background-color: var(--darkblue);
+    color: var(--white);
+    transform: scale(1.2);
+}

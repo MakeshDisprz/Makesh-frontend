@@ -1,0 +1,29 @@
+@import '../../../styles/colors';
+
+.leftsidebar-container {
+    float: left;
+    padding: 3px;
+    background-color: var(--theme-color);
+    position: sticky;
+    top: 54.6px;
+    height: calc(100vh - 59px);
+}
+
+
+
+@media screen and (max-width:998px) {
+    .leftsidebar-container {
+        position: fixed;
+        left: 0px;
+        top: 54.6px;
+        z-index: 10;
+    }
+
+    #display-sidebar{
+        display: block;
+    }
+    
+    #hide-sidebar{
+        display: none;
+    }
+}
