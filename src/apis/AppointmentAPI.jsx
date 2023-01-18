@@ -54,8 +54,7 @@ async function deleteAppointment(id) {
                 'Content-Type': 'application/json'
             },
         })
-        // .then(result => result.status);
-        .then(result => console.log(result));
+        .then(result => result.status);
 }
 
 export const appointmentService = {

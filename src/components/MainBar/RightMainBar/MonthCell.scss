@@ -20,20 +20,22 @@
 }
 
 .today {
-    background-color: var(--papaya);
-}
-
-#active{
     background-color: var(--blue);
 }
 
+#active{
+    // background-color: var(--blue);
+}
+
 .next-month {
-    background-color: var(--palegold);
+    // background-color: var(--palegold);
+    background-color: #efefef;
     font-size: 12px;
 }
 
 .prev-month {
-    background-color: var(--palegold);
+    // background-color: var(--palegold);
+    background-color: #efefef;
     font-size: 12px;
 }
 

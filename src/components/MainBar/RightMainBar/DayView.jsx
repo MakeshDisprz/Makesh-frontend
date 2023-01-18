@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import './DayView.scss'
 import Appointment from '../../Events/Appointment'
 import { timeGridId } from '../../../Data'
@@ -9,21 +9,12 @@ export default function DayView({ data, setData }) {
 
     const { day } = useContext(DayContext)
 
-    const [dayData, setDayData] = useState([])
-
     useEffect(
         () => {
                 appointmentService.getByDay(day)
                 .then(resultdata => setData(resultdata));
         },
         [day]
-    )
-
-    useEffect(
-        () => {
-            setDayData(data)
-        },
-        [data]
     )
 
     return (
@@ -48,8 +39,8 @@ export default function DayView({ data, setData }) {
                             (item) =>
                                 <div className='time-grid' key={item.id} style={{ position: "relative" }}>
                                     {
-                                        (dayData[item.id] != null) && (dayData[item.id].length > 0) &&
-                                        dayData[item.id].map(
+                                        (data[item.id] != null) && (data[item.id].length > 0) &&
+                                        data[item.id].map(
                                             (item, index) => <Appointment appointment={item} setData={setData} key={index} />
                                         )
                                     }

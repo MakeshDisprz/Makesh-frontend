@@ -50,7 +50,7 @@ export default function NavBar({ data, setData }) {
 
                     <div className='date-container'> {DATE_FORMATS[pathname]} </div>
 
-                    <div className='viewbutton-container'>
+                    <div for="view" className='viewbutton-container'>
                         <Link to='/' className='view-button'>Day</Link>
                         <Link to='/monthview' className='view-button'>Month</Link>
                     </div>
@@ -72,7 +72,7 @@ export default function NavBar({ data, setData }) {
 
             {
                 showModal &&
-                <CreateEvent showModal={showModal} setShowModal={setShowModal} day={day} GET_DATA={GET_DATA} pathname={pathname} popup={popup} setPopUp={setPopUp} setStatus={setStatus} />
+                <CreateEvent showModal={showModal} setShowModal={setShowModal} day={day} setDay={setDay} GET_DATA={GET_DATA} pathname={pathname} popup={popup} setPopUp={setPopUp} setStatus={setStatus} />
             }
 
         </div>

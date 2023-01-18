@@ -6,7 +6,6 @@ import { faPencil, faTrash, faXmark } from '@fortawesome/free-solid-svg-icons'
 import './EventDetails.scss'
 import { DayContext } from '../../components/MainBar/MainBar';
 import { appointmentService } from '../../apis/AppointmentAPI';
-import PopUp from './PopUp';
 
 export default function EventDetails({ showEvent, setShowEvent, showDelete, setShowDelete, showUpdate, setShowUpdate, id, title, startTime, endTime, setData, setContent }) {
 
@@ -24,9 +23,8 @@ export default function EventDetails({ showEvent, setShowEvent, showDelete, setS
     const handleDelete = () => {
         appointmentService.deleteAppointment(id)
             .then(result => {
-                console.log(result)
-                if(result == 204) setContent("Appointment deleted successfully")
-                else setContent("Appointment not found")
+                if (result == 404) setContent("Appointment not found")
+                else setContent("Appointment deleted successfully")
             })
 
         setShowEvent(!showEvent)
@@ -38,10 +36,9 @@ export default function EventDetails({ showEvent, setShowEvent, showDelete, setS
     const handleUpdate = () => {
         appointmentService.put(id, updatedTitle, updatedStart, updatedEnd)
             .then(result => {
-                console.log(result);
                 if (result == 201) setContent("Appointment updated successfully")
-                else if(result == 409) setContent(`Update failed!!! There is a conflict with existing appointment`)
-                else setContent("bad request")
+                else if (result == 409) setContent(`Update failed!!! There is a conflict with existing appointment`)
+                else setContent("Invalid input")
             }
             )
 
@@ -52,13 +49,25 @@ export default function EventDetails({ showEvent, setShowEvent, showDelete, setS
 
     }
 
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+        },
+        overlay: { zindex: 100 }
+
+    };
+
     return (
         <>
             <Modal
                 isOpen={true}
                 onRequestClose={() => setShowEvent(!showEvent)}
-                className="modal"
-                overlayClassName="overlay"
+                style={customStyles}
             >
                 <div className='event-container'>
                     <div className='event-top'>
@@ -75,6 +84,7 @@ export default function EventDetails({ showEvent, setShowEvent, showDelete, setS
                     <div className='event-center'>
                         <div> <p>Title</p>
                             <input
+                                autoFocus
                                 className='event-input'
                                 disabled={disable}
                                 value={updatedTitle}

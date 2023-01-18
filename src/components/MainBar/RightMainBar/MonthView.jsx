@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import MonthCell from './MonthCell'
 import './MonthView.scss'
 
-import { add, differenceInDays, format, setDate, startOfMonth, sub } from 'date-fns';
+import { differenceInDays, startOfMonth, sub } from 'date-fns';
 import { endOfMonth } from 'date-fns/esm';
 import { DayContext } from '../MainBar';
 import { appointmentService } from '../../../apis/AppointmentAPI';
@@ -11,8 +11,7 @@ const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export default function MonthView({ data, setData }) {
 
-  const [monthData, setMonthData] = useState([])
-  const { day, setDay } = useContext(DayContext)
+  const { day } = useContext(DayContext)
 
   useEffect(
     () => {
@@ -20,13 +19,6 @@ export default function MonthView({ data, setData }) {
         .then(resultData => setData(resultData));
     },
     [day]
-  )
-
-  useEffect(
-    () => {
-      setMonthData(data)
-    },
-    [data]
   )
 
   const startDate = startOfMonth(day)
@@ -56,7 +48,7 @@ export default function MonthView({ data, setData }) {
         {
           Array.from({ length: prefixDays }).map(
             (_, index) => {
-              return <MonthCell className={'prev-month'} key={index} content={`${format(sub(day, { months: 1 }), 'LLL')} ${index + prevPrefix}`} />
+              return <MonthCell key={index} />
             }
           )
         }
@@ -72,7 +64,7 @@ export default function MonthView({ data, setData }) {
                 content={`${date}`}
                 isCurrentDate={isCurrentDate}
                 isActive={isActive}
-                monthEvents={monthData[index + 1]}
+                monthEvents={data[index + 1]}
               />
             }
           )
@@ -82,7 +74,7 @@ export default function MonthView({ data, setData }) {
           Array.from({ length: suffixDays }).map(
             (_, index) => {
               const date = index + 1;
-              return <MonthCell className={'next-month'} content={`${format(add(day, { months: 1 }), 'LLL')} ${date}`} key={index} />
+              return <MonthCell key={index} />
             }
           )
         }

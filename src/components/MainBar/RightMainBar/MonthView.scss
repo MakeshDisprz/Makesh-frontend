@@ -4,7 +4,8 @@
     display: flex;
     flex-direction: column;
     background-color: var(--gainsboro);
-    height: calc(100vh - 130px);
+    border: 1px solid var(--gainsboro);
+    height: calc(100vh - 170px);
 }
 
 .monthview-top{

@@ -4,8 +4,8 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    border-radius: 3px;
-    background-color: var(--gainsboro);
+    border-radius: 4px;
+    background-color: var(--white);
 }
 
 .navbar {
@@ -14,7 +14,7 @@
     background-color: var(--white);
     border-bottom: 1px solid var(--gainsboro);
     position: sticky;
-    top: 54.6px;
+    top: 72px;
     z-index: 5;
 }
 
@@ -49,8 +49,8 @@
 
 .button {
     @include button-style;
-    padding: 2px 12px;
-    font-size: 17px;
+    padding: 8px;
+    font-size: 15px;
 }
 
 .button:hover {
@@ -59,8 +59,9 @@
 
 .today-button {
     @include button-style;
+    border: 1px solid var(--gainsboro);
     font-size: 14px;
-    padding: 1px 12px;
+    padding: 8px;
 }
 
 .today-button:hover {
@@ -69,13 +70,11 @@
 
 .date-container {
     @include button-style;
+    cursor: auto;
     font-size: 28px;
-    padding: 0px 12px;
+    font-weight: 600;
+    padding: 8px;
     background-color: #fff;
-}
-
-.date-container:hover {
-    background-color: #dcdcdc;
 }
 
 .navbar-right {
@@ -89,7 +88,8 @@
     @include button-style;
     color: #000;
     text-decoration: none;
-    padding: 1px 12px;
+    border: 1px solid var(--gainsboro);
+    padding: 8px;
 }
 
 .view-button:hover {

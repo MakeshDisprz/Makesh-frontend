@@ -8,13 +8,14 @@ export default function MonthCell({className, isCurrentDate, isActive, content, 
             className={`${className} month-cell ${isCurrentDate ? 'today' : 'not-today'}`}
             id={`${isActive && !isCurrentDate ? 'active' : 'inactive'}`}
         >
-            <div>{content}</div>
+            <div style={{padding:"4px"}}>{content}</div>
             <div className='eventname-container'>
                 {
                     monthEvents != null && monthEvents.length > 0 &&
                     monthEvents.map(
                         (item, index) => <MonthEvent monthevent={item} key={index} />
                     )
+                    
                 }
             </div>
         </div>

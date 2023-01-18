@@ -2,24 +2,37 @@
 
 @mixin tool-tip {
     position: absolute;
-    top: 18px;
+    border: 1px solid var(--gainsboro);
+    background-color: var(--white);
+    color: var(--black);
+    padding: 8px;
+    border-radius: 4px;
+    top: 24px;
     display: none;
 }
 
 .event-container {
     display: flex;
     flex-direction: column;
-    row-gap: 18px;
-    border-radius: 8px;
+    row-gap: 10px;
 }
 
-.event-container p {
-    margin: 10px 0;
+.event-center p {
+    padding: 8px;
+    margin: 0;
 }
 
 .event-top {
     display: flex;
     justify-content: space-between;
+    column-gap: 50px;
+    align-items: center;
+    padding: 8px;
+}
+
+.event-header{
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .event-icons {
@@ -30,10 +43,14 @@
 
 .event-input {
     border: none;
-    border-radius: 2px;
     background-color: var(--white);
-    padding: 7px 0;
+    padding: 8px;
     width: 100%;
+}
+
+.event-input:focus{
+    outline: none;
+    border-bottom: 2px solid var(--blue);
 }
 
 .event-icon {
@@ -79,11 +96,6 @@
     border: none;
     border-radius: 4px;
     padding: 8px;
-}
-
-.event-button:hover {
-    background-color: var(--pink);
-    background-color: var(--darkblue);
+    background-color: var(--blue);
     color: var(--white);
-    transform: scale(1.2);
 }

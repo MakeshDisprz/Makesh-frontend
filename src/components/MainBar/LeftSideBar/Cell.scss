@@ -19,7 +19,7 @@
 }
 
 #active {
-    background-color: var(--papaya);
+    // background-color: var(--papaya);
 }
 
 .date-cell {
@@ -31,11 +31,13 @@
 }
 
 .prev-month {
-    background-color: var(--palegold);
+    // background-color: var(--palegold);
+    background-color: #efefef;
     font-size: 12px;
 }
 
 .next-month {
-    background-color: var(--palegold);
+    // background-color: var(--palegold);
+    background-color: #efefef;
     font-size: 12px;
 }

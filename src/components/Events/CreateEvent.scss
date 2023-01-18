@@ -1,31 +1,21 @@
 @import '../.././styles/colors';
 
-.modal {
-    position: fixed;
-    left: 35%;
-    right: 35%;
-    top: 30%;
-    bottom: 22%;
-    border-radius: 10px;
-    background-color: var(--gainsboro);
-    padding: 14px 20px;
-    z-index: 7;
-}
-
 .modal-container {
     display: flex;
     flex-direction: column;
-    row-gap: 18px;
-    border-radius: 8px;
-}
-
-.modal-container p {
-    margin: 10px 0;
+    row-gap: 10px;
 }
 
 .modal-top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+}
+
+.modal-header{
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .modal-icon {
@@ -33,12 +23,12 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .close-icon{
     position: absolute;
-    top: 18px;
+    top: 24px;
     display: none;
 }
 
@@ -46,21 +36,29 @@
     display: block;
 }
 
-.modal-icon:hover {
-    color: var(--darkblue);
-}
 
 .modal-center {
     display: flex;
     flex-direction: column;
+    row-gap: 8px;
+}
+
+.modal-center p{
+    padding: 8px;
+    padding-bottom: 0px;
+    margin: 0;
 }
 
 .create-event-input {
     border: none;
-    border-radius: 2px;
     background-color: var(--white);
-    padding: 7px 0;
+    padding: 8px;
     width: 100%;
+}
+
+.create-event-input:focus{
+    outline: none;
+    border-bottom: 2px solid var(--blue);
 }
 
 .modal-bottom {
@@ -71,23 +69,20 @@
 
 .modal-button {
     cursor: pointer;
-    border: none;
+    border: 1px solid var(--gainsboro);
     border-radius: 4px;
     padding: 8px;
-    background-color: var(--white);
-    transition: .3s ease;
-}
-
-.modal-button:hover {
-    background-color: var(--darkblue);
+    background-color: var(--blue);
     color: var(--white);
-    transform: scale(1.2);
 }
 
 .react-datetime-picker__wrapper {
+    display: flex;
+    column-gap: 50px;
     border: none;
-    border-radius: 2px;
+    border-radius: 4px;
     background-color: var(--white);
+    padding: 8px;
 }
 
 .react-datetime-picker__clear-button {
@@ -99,25 +94,5 @@
 }
 
 .picker-container {
-    margin-right: 0px;
-}
-
-@media screen and (max-width:980px) {
-    .modal {
-        left: 27%;
-        right: 27%;
-    }
-}
-@media screen and (max-width:676px) {
-    .modal {
-        left: 20%;
-        right: 20%;
-    }
-}
-
-@media screen and (max-width:476px) {
-    .modal {
-        left: 10%;
-        right: 10%;
-    }
+    // margin-right: 100px;
 }

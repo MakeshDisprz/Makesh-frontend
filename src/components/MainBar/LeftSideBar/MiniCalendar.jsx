@@ -43,7 +43,7 @@ export default function MiniCalendar() {
       <div className='container-top'>
         <Cell content={<FontAwesomeIcon icon={faAnglesLeft} />} onClick={prevYear} />
         <Cell content={<FontAwesomeIcon icon={faAngleLeft} />} onClick={prevMonth} />
-        <Cell className={'date-cell'} content={`${format(day, "LLLL yyyy")}`} />
+        <Cell className={'date-cell'} content={`${format(day, "LLL yyyy")}`} />
         <Cell content={<FontAwesomeIcon icon={faAngleRight} />} onClick={nextMonth} />
         <Cell content={<FontAwesomeIcon icon={faAnglesRight} />} onClick={nextYear} />
 
@@ -56,7 +56,7 @@ export default function MiniCalendar() {
         {
           Array.from({ length: prefixDays }).map(
             (_, index) => {
-              return <Cell key={index} className={'prev-month'} content={`${format(sub(day, { months: 1 }), 'LLL')} ${index + prevPrefix}`}/>
+              return <Cell key={index}/>
             }
           )
         }
@@ -78,14 +78,14 @@ export default function MiniCalendar() {
           )
         }
 
-        {
+        {/* {
           Array.from({ length: suffixDays }).map(
             (_, index) => {
               const date = index + 1;
-              return <Cell className={'next-month'} content={`${format(add(day, { months: 1 }), 'LLL')} ${date}`} key={index}/>
+              return <Cell className={'next-month'} content={date} key={index}/>
             }
           )
-        }
+        } */}
 
       </div>
     </div>
