@@ -16,9 +16,6 @@ export default function CreateEvent({ showModal, setShowModal, day, setDay, GET_
 
     const handleSave = () => {
         postData()
-        // setDay(day)
-        // GET_DATA[pathname]()
-        // GET_DATA[pathname]()
     }
 
     const postData = () => {
