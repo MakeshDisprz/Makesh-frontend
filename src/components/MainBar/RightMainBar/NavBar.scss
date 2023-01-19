@@ -96,6 +96,22 @@
     background-color: #dcdcdc;
 }
 
+.createicon-container{
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    padding: 15px 18px;
+    background-color: var(--blue);
+    z-index: 5;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.create-icon{
+    font-size: 28px;
+    color: var(--white);
+}
+
 @media screen and (max-width:576px) {
     .date-container{
         font-size: 24px;

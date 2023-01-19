@@ -26,6 +26,7 @@ export default function MonthView({ data, setData }) {
   const numDays = differenceInDays(endDate, startDate) + 1
   const prefixDays = startDate.getDay()
   const suffixDays = 6 - endDate.getDay()
+  // const suffixDays = 42 - prefixDays - numDays
 
   const prevStartDate = startOfMonth(sub(day, { months: 1 }))
   const prevEndDate = endOfMonth(sub(day, { months: 1 }))
@@ -45,6 +46,31 @@ export default function MonthView({ data, setData }) {
       </div>
       <div className='monthview-bottom'>
 
+        {/* {
+          Array.from({ length: 42 }).map(
+            (_, index) => {
+              if (index < prefixDays) {
+                return <MonthCell key={index} />
+              }
+              else if (index >= prefixDays && index < (42 - suffixDays)) {
+                const date = index + 1 - prefixDays;
+                const isCurrentDate = date === new Date().getDate();
+                const isActive = date === day.getDate()
+                return <MonthCell
+                  key={date}
+                  content={`${date}`}
+                  isCurrentDate={isCurrentDate}
+                  isActive={isActive}
+                  monthEvents={data[index + 1]}
+                />
+              }
+              // if (index >= (numDays+prefixDays) && index < suffixDays)
+              else if (index >= (numDays+prefixDays) && index < suffixDays) {
+                return <MonthCell key={index} />
+              }
+            }
+          )
+        } */}
         {
           Array.from({ length: prefixDays }).map(
             (_, index) => {

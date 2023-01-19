@@ -28,8 +28,6 @@ export default function EventDetails({ showEvent, setShowEvent, showDelete, setS
             })
 
         setShowEvent(!showEvent)
-        getData()
-        getData()
         setShowDelete(!showDelete)
     }
 
@@ -43,8 +41,6 @@ export default function EventDetails({ showEvent, setShowEvent, showDelete, setS
             )
 
         setShowEvent(!showEvent)
-        getData()
-        getData()
         setShowUpdate(!showUpdate)
 
     }

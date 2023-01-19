@@ -29,8 +29,6 @@ export default function CreateEvent({ showModal, setShowModal, day, setDay, GET_
                     else if (result == 409) setStatus("Appointment not created!!! There is a conflict with existing appointment")
                     else setStatus("Invalid input")
                 })
-            GET_DATA[pathname]()
-            GET_DATA[pathname]()
             setShowModal(!showModal);
             setPopUp(!popup) 
         }

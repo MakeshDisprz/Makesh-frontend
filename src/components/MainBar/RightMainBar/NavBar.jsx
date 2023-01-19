@@ -50,7 +50,7 @@ export default function NavBar({ data, setData }) {
 
                     <div className='date-container'> {DATE_FORMATS[pathname]} </div>
 
-                    <div for="view" className='viewbutton-container'>
+                    <div className='viewbutton-container'>
                         <Link to='/' className='view-button'>Day</Link>
                         <Link to='/monthview' className='view-button'>Month</Link>
                     </div>
@@ -66,7 +66,7 @@ export default function NavBar({ data, setData }) {
                 </div>
                 {
                     popup &&
-                    <PopUp popup={popup} setPopUp={setPopUp} content={status} />
+                    <PopUp popup={popup} setPopUp={setPopUp} content={status} setData={setData} />
                 }
             </div>
 

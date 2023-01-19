@@ -63,14 +63,23 @@
 
 .edit-icon {
     @include tool-tip;
+    color: #fff;
+    background-color: #555;
+    padding: 8px;
 }
 
 .delete-icon {
     @include tool-tip;
+    color: #fff;
+    background-color: #555;
+    padding: 8px;
 }
 
 .close-icon {
     @include tool-tip;
+    color: #fff;
+    background-color: #555;
+    padding: 8px;
 }
 
 .event-icon:hover .edit-icon {

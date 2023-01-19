@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import './DayView.scss'
 import Appointment from '../../Events/Appointment'
 import { timeGridId } from '../../../Data'
@@ -8,6 +8,8 @@ import { appointmentService } from '../../../apis/AppointmentAPI';
 export default function DayView({ data, setData }) {
 
     const { day } = useContext(DayContext)
+    const [content, setContent] = useState("")
+
 
     useEffect(
         () => {
@@ -41,7 +43,7 @@ export default function DayView({ data, setData }) {
                                     {
                                         (data[item.id] != null) && (data[item.id].length > 0) &&
                                         data[item.id].map(
-                                            (item, index) => <Appointment appointment={item} setData={setData} key={index} />
+                                            (item, index) => <Appointment appointment={item} setData={setData} key={index} content={content} setContent={setContent}/>
                                         )
                                     }
                                 </div>

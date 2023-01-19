@@ -3,12 +3,12 @@ import './Appointment.scss'
 import EventDetails from './EventDetails'
 import PopUp from './PopUp'
 
-export default function Appointment({ appointment, setData }) {
+export default function Appointment({ appointment, setData, content, setContent }) {
 
     const [showEvent, setShowEvent] = useState(false)
     const [showDelete, setShowDelete] = useState(false)
     const [showUpdate, setShowUpdate] = useState(false)
-    const [content, setContent] = useState("")
+    // const [content, setContent] = useState("")
 
     var startTime = new Date(appointment.startTime)
     var endTime = new Date(appointment.endTime)
@@ -45,11 +45,11 @@ export default function Appointment({ appointment, setData }) {
 
             {
                 showDelete &&
-                <PopUp popup={showDelete} setPopUp={setShowDelete} content={content}/>
+                <PopUp popup={showDelete} setPopUp={setShowDelete} content={content} setData={setData}/>
             }
             {
                 showUpdate &&
-                <PopUp popup={showUpdate} setPopUp={setShowUpdate} content={content}/>
+                <PopUp popup={showUpdate} setPopUp={setShowUpdate} content={content} setData={setData}/>
             }
         </>
     )
