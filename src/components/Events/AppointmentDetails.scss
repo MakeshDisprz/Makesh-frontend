@@ -1,0 +1,69 @@
+@import '../../styles/colors';
+
+@mixin tool-tip {
+    position: absolute;
+    border: 1px solid var(--gainsboro);
+    border-radius: 4px;
+    top: 24px;
+    display: none;
+    color: #fff;
+    background-color: #555;
+    padding: 8px;
+}
+
+.details-top {
+    display: flex;
+    column-gap: 50px;
+    align-items: center;
+    padding: 8px;
+}
+
+.details-icons {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 30px;
+}
+
+.details-icon {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.details-header {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.details-bottom {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 8px;
+}
+
+.edit-icon {
+    @include tool-tip;
+}
+
+.delete-icon {
+    @include tool-tip;
+}
+
+.close-icon {
+    @include tool-tip;
+}
+
+.details-icon:hover .edit-icon {
+    display: block;
+}
+
+.details-icon:hover .delete-icon {
+    display: block;
+}
+
+.details-icon:hover .close-icon {
+    display: block;
+}

@@ -70,3 +70,43 @@
     }
 
 }
+
+@media screen and (max-width:576px) {
+    .topbar-title{
+        // font-size: 24px;
+    }
+    .topbar-time{
+        padding: 6px;
+    }
+}
+@media screen and (max-width:476px) {
+    .logo-container {
+        display: none;
+    }
+    .profile-image{
+        display: none;
+    }
+    .topbar-left{
+        column-gap: 0px;
+    }
+
+}
+
+@media screen and (max-width:380px) {
+    .topbar-title{
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width:280px) {
+    .topbar-title{
+        font-size: 22px;
+    }
+    .topbar-time{
+        font-size: 12px;
+        padding: 5px;
+    }
+    .topbar-icon{
+        font-size: 20px;
+    }
+}

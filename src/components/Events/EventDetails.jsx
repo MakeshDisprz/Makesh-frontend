@@ -1,75 +1,68 @@
+/** EventDetails component */
+
 import React, { useContext, useState } from 'react'
 import Modal from 'react-modal'
 import DateTimePicker from 'react-datetime-picker';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencil, faTrash, faXmark } from '@fortawesome/free-solid-svg-icons'
 import './EventDetails.scss'
-import { DayContext } from '../../components/MainBar/MainBar';
 import { appointmentService } from '../../apis/AppointmentAPI';
 
-export default function EventDetails({ showEvent, setShowEvent, showDelete, setShowDelete, showUpdate, setShowUpdate, id, title, startTime, endTime, setData, setContent }) {
+export default function EventDetails({ showEvent, setShowEvent, showDelete, setShowDelete, showUpdate, setShowUpdate, id, title, startTime, endTime, setContent, setConflict }) {
 
-    const { day } = useContext(DayContext)
+
+    /** states to enable and disable update */
     const [disable, setDisable] = useState(true)
+    const [update, setUpdate] = useState(false)
+
+    /**
+     * states to store updated title , startTime, endTime
+     */
     const [updatedTitle, setupdatedTitle] = useState(title)
     const [updatedStart, setupdatedStart] = useState(new Date(startTime))
     const [updatedEnd, setupdatedEnd] = useState(new Date(endTime))
 
-    const getData = () => {
-        appointmentService.getByDay(day)
-            .then(resultData => setData(resultData));
-    }
-
+    /** function to delete an appointment */
     const handleDelete = () => {
         appointmentService.deleteAppointment(id)
             .then(result => {
-                if (result == 404) setContent("Appointment not found")
-                else setContent("Appointment deleted successfully")
+                if (result == 204) {
+                    setContent("Appointment deleted successfully")
+                }
+                else {
+                    setContent("Appointment not found")
+                }
             })
-
         setShowEvent(!showEvent)
         setShowDelete(!showDelete)
     }
 
+    /** function to update an appointment */
     const handleUpdate = () => {
-        appointmentService.put(id, updatedTitle, updatedStart, updatedEnd)
+        appointmentService.put(id, updatedTitle, new Date(updatedStart), new Date(updatedEnd))
             .then(result => {
-                if (result == 201) setContent("Appointment updated successfully")
-                else if (result == 409) setContent(`Update failed!!! There is a conflict with existing appointment`)
-                else setContent("Invalid input")
+                setContent(result.message)
+                setConflict(result.conflictAppointments)
             }
             )
-
         setShowEvent(!showEvent)
         setShowUpdate(!showUpdate)
 
     }
-
-    const customStyles = {
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-        },
-        overlay: { zindex: 100 }
-
-    };
 
     return (
         <>
             <Modal
                 isOpen={true}
                 onRequestClose={() => setShowEvent(!showEvent)}
-                style={customStyles}
+                className="Modal"
+                overlayClassName="Overlay"
             >
                 <div className='event-container'>
                     <div className='event-top'>
                         <div className='event-header'>Appointment Details</div>
                         <div className='event-icons'>
-                            <div onClick={() => setDisable(!disable)} className='event-icon'>
+                            <div onClick={() => { setDisable(!disable); setUpdate(true) }} className='event-icon'>
                                 <FontAwesomeIcon icon={faPencil} /> <div className='edit-icon'>Edit</div> </div>
                             <div onClick={handleDelete} className='event-icon'>
                                 <FontAwesomeIcon icon={faTrash} /> <div className='delete-icon'>Delete</div> </div>
@@ -88,14 +81,22 @@ export default function EventDetails({ showEvent, setShowEvent, showDelete, setS
                             />
                         </div>
                         <div> <p>StartTime</p>
-                            <DateTimePicker onChange={setupdatedStart} value={updatedStart} disabled={disable} disableClock={true} /> </div>
+                            <input type="datetime-local" name="" id="" value={updatedStart} onChange={(e) => setupdatedStart(e.target.value)} className='time-input' />
+
+                            {/* <DateTimePicker onChange={setupdatedStart} value={updatedStart} disabled={disable} disableClock={true} />  */}
+                        </div>
                         <div> <p>EndTime</p>
-                            <DateTimePicker onChange={setupdatedEnd} value={updatedEnd} disabled={disable} disableClock={true} /> </div>
+                            <input type="datetime-local" name="" id="" value={updatedEnd} onChange={(e) => setupdatedEnd(e.target.value)} className='time-input' />
+                            {/* <DateTimePicker onChange={setupdatedEnd} value={updatedEnd} disabled={disable} disableClock={true} /> */}
+                        </div>
                     </div>
-                    <div className='event-bottom'>
-                        <button className='event-button' onClick={handleUpdate}>Update</button>
-                        <button className='event-button' onClick={() => setShowEvent(!showEvent)}>Cancel</button>
-                    </div>
+                    {
+                        update &&
+                        <div className='event-bottom'>
+                            <button className='event-button' onClick={handleUpdate}>Update</button>
+                            <button className='event-button' onClick={() => setShowEvent(!showEvent)}>Cancel</button>
+                        </div>
+                    }
                 </div>
             </Modal>
         </>

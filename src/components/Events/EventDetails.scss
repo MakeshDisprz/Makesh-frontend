@@ -11,6 +11,28 @@
     display: none;
 }
 
+.Modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+}
+
+.Overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff99;
+    z-index: 10;
+}
+
 .event-container {
     display: flex;
     flex-direction: column;
@@ -42,16 +64,13 @@
 }
 
 .event-input {
-    border: none;
+    border: 1px solid #555;
+    border-radius: 3px;
     background-color: var(--white);
     padding: 8px;
     width: 100%;
 }
 
-.event-input:focus{
-    outline: none;
-    border-bottom: 2px solid var(--blue);
-}
 
 .event-icon {
     cursor: pointer;
@@ -108,3 +127,61 @@
     background-color: var(--blue);
     color: var(--white);
 }
+
+@media screen and (max-width:768px) {
+    .Modal{
+        padding: 10px;
+    }
+    .event-top{
+        column-gap: 20px;
+    }
+    .event-header{
+        font-size: 16px;
+    }
+    .event-icons{
+        font-size: 13px;
+    }
+    .event-icons{
+        column-gap: 10px;
+    }
+
+    .event-input{
+        padding: 6px;
+    }
+    .time-input{
+        padding: 5px;
+    }
+    .event-button{
+        padding: 6px;
+        font-size: 11px;
+    }
+}
+
+// @media screen and (max-width:576px) {
+//     .Modal{
+//         left: 25%;
+//         // right: 20%;
+//         transform: translate(0, -50%);
+//     }
+// }
+// @media screen and (max-width:476px) {
+//     .Modal{
+//         left: 15%;
+//         // right: 20%;
+//         transform: translate(0, -50%);
+//     }
+// }
+// @media screen and (max-width:420px) {
+//     .Modal{
+//         left: 10%;
+//         // right: 20%;
+//         transform: translate(10%, -50%);
+//     }
+// }
+// @media screen and (max-width:380px) {
+//     .Modal{
+//         left: 5%;
+//         // right: 10px;
+//         transform: translate(0, -50%);
+//     }
+// }

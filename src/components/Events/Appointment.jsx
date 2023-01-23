@@ -1,14 +1,26 @@
+/** Appointment component */
+
 import React, { useState } from 'react'
 import './Appointment.scss'
-import EventDetails from './EventDetails'
+import AppointmentDetails from './AppointmentDetails'
+import CreateEvent from './CreateEvent'
 import PopUp from './PopUp'
 
-export default function Appointment({ appointment, setData, content, setContent }) {
+export default function Appointment({ appointment, setData, content, setContent, conflict, setConflict }) {
 
+    /** state to show and hide appointment details */
     const [showEvent, setShowEvent] = useState(false)
+
+    /** state to show and hide response for delete appointment */
     const [showDelete, setShowDelete] = useState(false)
+
+    /** state to show and hide response for update appointment */
     const [showUpdate, setShowUpdate] = useState(false)
-    // const [content, setContent] = useState("")
+
+    /** state to show and hide modal to edit appointments */
+    const [showEdit, setShowEdit] = useState(false)
+
+    /** computes the height and values to position the appointment in the correct time slot */
 
     var startTime = new Date(appointment.startTime)
     var endTime = new Date(appointment.endTime)
@@ -25,31 +37,49 @@ export default function Appointment({ appointment, setData, content, setContent 
             >
                 {appointment.title}
             </div>
+
+            {/* conditionally renders appointment details */}
             {
                 showEvent &&
-                <EventDetails
+                <AppointmentDetails
+                    appointment={appointment}
                     showEvent={showEvent}
                     setShowEvent={setShowEvent}
                     showDelete={showDelete}
                     setShowDelete={setShowDelete}
-                    showUpdate={showUpdate}
-                    setShowUpdate={setShowUpdate}
-                    id={appointment.id}
-                    title={appointment.title}
-                    startTime={appointment.startTime}
-                    endTime={appointment.endTime}
-                    setData={setData}
                     setContent={setContent}
+                    showEdit={showEdit}
+                    setShowEdit={setShowEdit}
                 />
             }
 
+            {/* conditionally renders edit modal */}
+            {
+                showEdit &&
+                <CreateEvent
+                    Id={appointment.id}
+                    Title={appointment.title}
+                    Start={new Date(appointment.startTime)}
+                    End={new Date(appointment.endTime)}
+                    showModal={showEdit}
+                    setShowModal={setShowEdit}
+                    popup={showUpdate}
+                    setPopUp={setShowUpdate}
+                    setConflict={setConflict}
+                    setStatus={setContent}
+                />
+            }
+
+            {/* conditionally renders response modal for delete appointment */}
             {
                 showDelete &&
-                <PopUp popup={showDelete} setPopUp={setShowDelete} content={content} setData={setData}/>
+                <PopUp popup={showDelete} setPopUp={setShowDelete} content={content} setData={setData} />
             }
+
+            {/* conditionally renders response modal for update appointment */}
             {
                 showUpdate &&
-                <PopUp popup={showUpdate} setPopUp={setShowUpdate} content={content} setData={setData}/>
+                <PopUp popup={showUpdate} setPopUp={setShowUpdate} content={content} setData={setData} conflict={conflict} setConflict={setConflict} />
             }
         </>
     )

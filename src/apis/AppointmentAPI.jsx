@@ -11,7 +11,7 @@ async function getByMonth(day) {
 }
 
 async function post(title, start, end) {
-   return fetch('http://localhost:5169/v1/api/appointments',
+    return fetch('http://localhost:5169/v1/api/appointments',
         {
             method: 'POST',
             headers: {
@@ -24,7 +24,7 @@ async function post(title, start, end) {
                 "endTime": end
             })
         })
-        .then(result => result.status);
+    .then(result => result.json())
 }
 
 async function put(id, title, start, end) {
@@ -42,7 +42,7 @@ async function put(id, title, start, end) {
                 "endTime": end
             })
         })
-        .then(result => result.status);
+        .then(result => result.json())
 }
 
 async function deleteAppointment(id) {
@@ -57,10 +57,28 @@ async function deleteAppointment(id) {
         .then(result => result.status);
 }
 
+async function mapAppointments(arr) {
+    const arr1 = [];
+    arr.forEach(element => {
+        var start = new Date(element.startTime);
+        var id = start.getHours();
+        if(arr1[id] != null && arr1[id].length != 0)
+        {
+            arr1[id] = [...arr1[id], element]
+        }
+        else{
+            
+            arr1[id] = [element];
+        }
+    });
+    return arr1;
+}
+
 export const appointmentService = {
     getByDay,
     getByMonth,
     post,
     put,
-    deleteAppointment
+    deleteAppointment,
+    mapAppointments
 };

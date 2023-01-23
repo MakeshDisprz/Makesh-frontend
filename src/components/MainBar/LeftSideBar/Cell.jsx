@@ -1,3 +1,5 @@
+/** Cell component */
+
 import React from 'react'
 import './Cell.scss'
 
