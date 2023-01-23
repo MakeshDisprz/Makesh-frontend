@@ -1,0 +1,24 @@
+@import '../../../styles/colors';
+
+.leftsidebar-container {
+    float: left;
+    padding: 8px;
+    background-color: var(--white);
+    border-right: 1px solid var(--gainsboro);
+    position: sticky;
+    top: 72px;
+    height: calc(100vh - 72px);
+}
+
+@media screen and (max-width:998px) {
+    .leftsidebar-container {
+        position: fixed;
+        left: 0px;
+        top: 72px;
+        z-index: 10;
+    }
+    
+    .hide-sidebar{
+        display: none;
+    }
+}

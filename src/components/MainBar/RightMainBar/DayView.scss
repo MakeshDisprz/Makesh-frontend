@@ -1,0 +1,44 @@
+@import '../../../styles/colors';
+
+.dayview-container {
+    display: flex;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.dayview-left {
+    padding-right: 6px;
+    border-right: solid 1px var(--gainsboro);
+    font-size: 14px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.time-container {
+    height: 51px;
+}
+
+.time-value {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    top: -10px;
+    color: #666;
+}
+
+.dayview-right {
+    flex-grow: 1;
+    border-right: 1px solid var(--gainsboro);
+}
+
+.time-grid {
+    content: "";
+    height: 51px;
+    border-top: 1px solid var(--gainsboro);
+    border-bottom: 1px solid var(--gainsboro);
+    border-collapse: collapse;
+    width: 100%;
+}

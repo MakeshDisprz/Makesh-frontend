@@ -1,0 +1,275 @@
+@import '../../../styles/colors';
+
+@mixin button-style {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    background-color: var(--white);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--gainsboro);
+    position: sticky;
+    top: 70.4px;
+    z-index: 5;
+}
+
+.navbar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.navbar-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    column-gap: 2px;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+}
+
+.viewbutton-container {
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 2px;
+}
+
+.button {
+    @include button-style;
+    padding: 8px;
+    font-size: 15px;
+}
+
+.button:hover {
+    background-color: #dcdcdc;
+}
+
+.today-button {
+    @include button-style;
+    border: 1px solid var(--gainsboro);
+    font-size: 14px;
+    padding: 8px;
+}
+
+.today-button:hover {
+    background-color: #dcdcdc;
+}
+
+.date-container {
+    @include button-style;
+    cursor: auto;
+    font-size: 28px;
+    font-weight: 600;
+    padding: 8px;
+    background-color: #fff;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 2px;
+}
+
+.view-button {
+    @include button-style;
+    color: #000;
+    text-decoration: none;
+    border: 1px solid var(--gainsboro);
+    padding: 8px;
+}
+
+.view-button:hover {
+    background-color: #dcdcdc;
+}
+
+.createicon-container {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    padding: 8px 15px;
+    background-color: var(--blue);
+    z-index: 5;
+    cursor: pointer;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.create-text{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.create-icon {
+    font-size: 28px;
+    color: var(--white);
+}
+
+@media screen and (max-width:576px) {
+    .date-container {
+        font-size: 24px;
+        padding: 6px 8px;
+    }
+
+    .view-button {
+        font-size: 14px;
+        padding: 1px 8px;
+    }
+
+    .today-button {
+        font-size: 14px;
+        padding: 6px 8px;
+    }
+
+    .createicon-container{
+        padding: 6px 13px;
+    }
+
+    .create-text{
+        font-size: 18px;
+    }
+    .create-icon{
+        font-size: 24px;
+    }
+
+    // .button {
+    //     font-size: 16px;
+    //     padding: 2px 8px;
+    // }
+}
+
+@media screen and (max-width:476px) {
+
+    .navbar{
+        top: 70.4px;
+    }
+
+    .navbar-container{
+        padding: 10px;
+    }
+
+    // .date-container {
+    //     font-size: 20px;
+    //     padding: 0px 6px;
+    // }
+
+    .view-button {
+        font-size: 13px;
+        padding: 1px 6px;
+    }
+
+    // .today-button {
+    //     font-size: 13px;
+    //     padding: 1px 6px;
+    // }
+
+    // .button {
+    //     font-size: 15px;
+    //     padding: 2px 6px;
+    // }
+
+    .createicon-container {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        // bottom: 8px;
+        // left: 50%;
+        // transform: translate(-50%, -50%);
+        border-radius: 100%;
+        padding: 13px 16px;
+    }
+
+    .buttons{
+        position: absolute;
+        right: 10px;
+    }
+    .create-text{
+        display: none;
+    }
+}
+
+@media screen and (max-width:420px) {
+
+    .date-container {
+        font-size: 20px;
+    }
+
+    .view-button {
+        font-size: 11px;
+    }
+
+    .today-button {
+        font-size: 11px;
+    }
+
+    .button {
+        font-size: 13px;
+    }
+
+    // .navbar-left {
+    //     flex-direction: column;
+    //     row-gap: 5px;
+    // }
+
+    // .navbar-right {
+    //     justify-content: flex-start;
+    // }
+}
+
+@media screen and (max-width:380px) {
+    .navbar{
+        top: 65.6px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .date-container {
+        font-size: 16px;
+    }
+
+    .navbar-container{
+        padding: 10px;
+    }
+
+    .buttons{
+        position: absolute;
+        right: 10px;
+    }
+
+    .view-button {
+        font-size: 12px;
+    }
+
+    .today-button {
+        font-size: 12px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:280px) {
+    .navbar{
+        top: 64px;
+    }
+}

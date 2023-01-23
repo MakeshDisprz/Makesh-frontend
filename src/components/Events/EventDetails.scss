@@ -1,0 +1,187 @@
+@import '../../styles/colors';
+
+@mixin tool-tip {
+    position: absolute;
+    border: 1px solid var(--gainsboro);
+    background-color: var(--white);
+    color: var(--black);
+    padding: 8px;
+    border-radius: 4px;
+    top: 24px;
+    display: none;
+}
+
+.Modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+}
+
+.Overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff99;
+    z-index: 10;
+}
+
+.event-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.event-center p {
+    padding: 8px;
+    margin: 0;
+}
+
+.event-top {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 50px;
+    align-items: center;
+    padding: 8px;
+}
+
+.event-header{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.event-icons {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 30px;
+}
+
+.event-input {
+    border: 1px solid #555;
+    border-radius: 3px;
+    background-color: var(--white);
+    padding: 8px;
+    width: 100%;
+}
+
+
+.event-icon {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.edit-icon {
+    @include tool-tip;
+    color: #fff;
+    background-color: #555;
+    padding: 8px;
+}
+
+.delete-icon {
+    @include tool-tip;
+    color: #fff;
+    background-color: #555;
+    padding: 8px;
+}
+
+.close-icon {
+    @include tool-tip;
+    color: #fff;
+    background-color: #555;
+    padding: 8px;
+}
+
+.event-icon:hover .edit-icon {
+    display: block;
+}
+
+.event-icon:hover .delete-icon {
+    display: block;
+}
+
+.event-icon:hover .close-icon {
+    display: block;
+}
+
+.event-bottom {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 10px;
+}
+
+.event-button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+@media screen and (max-width:768px) {
+    .Modal{
+        padding: 10px;
+    }
+    .event-top{
+        column-gap: 20px;
+    }
+    .event-header{
+        font-size: 16px;
+    }
+    .event-icons{
+        font-size: 13px;
+    }
+    .event-icons{
+        column-gap: 10px;
+    }
+
+    .event-input{
+        padding: 6px;
+    }
+    .time-input{
+        padding: 5px;
+    }
+    .event-button{
+        padding: 6px;
+        font-size: 11px;
+    }
+}
+
+// @media screen and (max-width:576px) {
+//     .Modal{
+//         left: 25%;
+//         // right: 20%;
+//         transform: translate(0, -50%);
+//     }
+// }
+// @media screen and (max-width:476px) {
+//     .Modal{
+//         left: 15%;
+//         // right: 20%;
+//         transform: translate(0, -50%);
+//     }
+// }
+// @media screen and (max-width:420px) {
+//     .Modal{
+//         left: 10%;
+//         // right: 20%;
+//         transform: translate(10%, -50%);
+//     }
+// }
+// @media screen and (max-width:380px) {
+//     .Modal{
+//         left: 5%;
+//         // right: 10px;
+//         transform: translate(0, -50%);
+//     }
+// }
