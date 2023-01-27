@@ -7,10 +7,8 @@ import MonthView from './MonthView'
 import NavBar from './NavBar'
 import './RightMainBar.scss'
 
-export default function RightMainBar() {
+export default function RightMainBar({ data, setData }) {
 
-  /** state to store appointments of a day */
-  const [data, setData] = useState([])
 
   /** state to show and hide create modal */
   const [showModal, setShowModal] = useState(false)
@@ -23,21 +21,25 @@ export default function RightMainBar() {
 
 
   return (
-    <BrowserRouter>
-      <NavBar
-        data={data}
-        setData={setData}
-        showModal={showModal}
-        setShowModal={setShowModal}
-        status={status}
-        setStatus={setStatus}
-        conflict={conflict}
-        setConflict={setConflict}
-      />
-      <Routes>
-        <Route path='/' element={<DayView data={data} setData={setData} conflict={conflict} setConflict={setConflict} />} />
-        <Route path='/monthview' element={<MonthView data={data} setData={setData} />} />
-      </Routes>
-    </BrowserRouter>
+    <div className='rightbar-container'>
+      <BrowserRouter>
+        <NavBar
+          data={data}
+          setData={setData}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          status={status}
+          setStatus={setStatus}
+          conflict={conflict}
+          setConflict={setConflict}
+        />
+        <div className='view-container'>
+          <Routes>
+            <Route path='/' element={<DayView data={data} setData={setData} conflict={conflict} setConflict={setConflict} setStatus={setStatus} />} />
+            <Route path='/monthview' element={<MonthView data={data} setData={setData} conflict={conflict} setConflict={setConflict} />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
   )
 }

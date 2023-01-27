@@ -1,6 +1,7 @@
 @import '../../styles/colors';
 
 .monthevent-container{
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,4 +11,11 @@
     opacity: 1;
     border-radius: 5px;
     z-index: 1;
+    font-size: 12px;
+}
+
+@media screen and (max-width:576px) {
+    .monthevent-container{
+        display: none;
+    }
 }

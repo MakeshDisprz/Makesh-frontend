@@ -19,7 +19,7 @@
 }
 
 #active {
-    // background-color: var(--papaya);
+    background-color: var(--gainsboro);
 }
 
 .date-cell {
@@ -28,6 +28,11 @@
     align-items: center;
     justify-content: center;
     font-size: 17px;
+    cursor: auto;
+}
+
+.date-cell:hover{
+    background-color: var(--white);
 }
 
 .prev-month {

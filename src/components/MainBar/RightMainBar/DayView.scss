@@ -4,6 +4,7 @@
     display: flex;
     padding: 10px;
     border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .dayview-left {
@@ -25,7 +26,7 @@
     align-items: center;
     justify-content: flex-end;
     position: relative;
-    top: -10px;
+    top: -8px;
     color: #666;
 }
 
@@ -41,4 +42,12 @@
     border-bottom: 1px solid var(--gainsboro);
     border-collapse: collapse;
     width: 100%;
+}
+
+@media screen and (max-width:476px) {
+    // .dayview-container{
+    //     margin-left: 25px;
+    //     margin-right: 25px;
+    //     margin-bottom: 50px;
+    // }
 }

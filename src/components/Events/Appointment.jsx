@@ -6,7 +6,7 @@ import AppointmentDetails from './AppointmentDetails'
 import CreateEvent from './CreateEvent'
 import PopUp from './PopUp'
 
-export default function Appointment({ appointment, setData, content, setContent, conflict, setConflict }) {
+export default function Appointment({ appointment, data, setData, content, setContent, conflict, setConflict }) {
 
     /** state to show and hide appointment details */
     const [showEvent, setShowEvent] = useState(false)
@@ -42,6 +42,8 @@ export default function Appointment({ appointment, setData, content, setContent,
             {
                 showEvent &&
                 <AppointmentDetails
+                    data={data}
+                    setData={setData}
                     appointment={appointment}
                     showEvent={showEvent}
                     setShowEvent={setShowEvent}
@@ -73,13 +75,27 @@ export default function Appointment({ appointment, setData, content, setContent,
             {/* conditionally renders response modal for delete appointment */}
             {
                 showDelete &&
-                <PopUp popup={showDelete} setPopUp={setShowDelete} content={content} setData={setData} />
+                <PopUp
+                    popup={showDelete}
+                    setPopUp={setShowDelete}
+                    content={content}
+                    setData={setData}
+                    GET_DATA={true}
+                />
             }
 
             {/* conditionally renders response modal for update appointment */}
             {
                 showUpdate &&
-                <PopUp popup={showUpdate} setPopUp={setShowUpdate} content={content} setData={setData} conflict={conflict} setConflict={setConflict} />
+                <PopUp
+                    popup={showUpdate}
+                    setPopUp={setShowUpdate}
+                    content={content}
+                    setData={setData}
+                    conflict={conflict}
+                    setConflict={setConflict}
+                    GET_DATA={true}
+                />
             }
         </>
     )

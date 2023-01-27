@@ -7,7 +7,7 @@ import { timeGridId } from '../../../Data'
 import { DayContext } from '../MainBar';
 import { appointmentService } from '../../../apis/AppointmentAPI';
 
-export default function DayView({ data, setData, conflict, setConflict }) {
+export default function DayView({ data, setData, conflict, setConflict, setStatus }) {
 
     /** using the day context */
     const { day } = useContext(DayContext)
@@ -15,12 +15,13 @@ export default function DayView({ data, setData, conflict, setConflict }) {
     /** state to store the response message */
     const [content, setContent] = useState("")
 
+    const [create, setCreate] = useState(false)
+
     /** useEffect to get the appointments for a day */
     useEffect(
         () => {
             setData([])
             appointmentService.getByDay(day)
-                .then(result => appointmentService.mapAppointments(result))
                 .then(resultData => setData(resultData));
         },
         [day]
@@ -43,13 +44,15 @@ export default function DayView({ data, setData, conflict, setConflict }) {
                     {timeGridId.length > 0 &&
                         timeGridId.map(
                             (item) =>
-                                <div className='time-grid' key={item.id} style={{ position: "relative" }}>
+                                <div className='time-grid' key={item.id} style={{ position: "relative" }} onClick={() => setCreate(!create)}>
                                     {
-                                        (data[item.id] != null) && (data[item.id].length > 0) &&
-                                        data[item.id].map(
-                                            (item, index) =>
+                                        data &&
+                                        data.map(
+                                            (it, index) =>
+                                                (new Date(it.startTime).getHours() === item.id) &&
                                                 <Appointment
-                                                    appointment={item}
+                                                    appointment={it}
+                                                    data={data}
                                                     setData={setData}
                                                     key={index}
                                                     content={content}
@@ -63,6 +66,7 @@ export default function DayView({ data, setData, conflict, setConflict }) {
                         )
                     }
                 </div>
+                
             </div>
         </div>
     )

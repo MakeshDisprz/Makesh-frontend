@@ -16,6 +16,7 @@
     position: sticky;
     top: 70.4px;
     z-index: 5;
+    padding: 4px 8px;
 }
 
 .navbar-icon {
@@ -32,7 +33,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .navbar-left {
@@ -44,17 +45,50 @@
 .buttons{
     display: flex;
     align-items: center;
+    column-gap: 5px
 }
 
 .viewbutton-container {
+    @include button-style;
+    position: relative;
     display: flex;
     justify-content: flex-start;
     column-gap: 2px;
 }
 
+.viewbutton-option{
+    @include button-style;
+    border: 1px solid var(--gainsboro);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 17px;
+}
+
+.viewbutton-option:hover{
+    background-color: var(--gainsboro);
+}
+
+.viewoption-values{
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    display: flex;
+    flex-direction: column;
+    column-gap: 5px;
+    background-color:var(--white);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: none
+}
+
+.viewbutton-container:hover .viewoption-values{
+    display: block
+}
 .button {
     @include button-style;
-    padding: 8px;
+    border-radius: 100%;
+    padding: 6px 8px;
     font-size: 15px;
 }
 
@@ -65,7 +99,7 @@
 .today-button {
     @include button-style;
     border: 1px solid var(--gainsboro);
-    font-size: 14px;
+    font-size: 17px;
     padding: 8px;
 }
 
@@ -76,7 +110,7 @@
 .date-container {
     @include button-style;
     cursor: auto;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 600;
     padding: 8px;
     background-color: #fff;
@@ -93,7 +127,7 @@
     @include button-style;
     color: #000;
     text-decoration: none;
-    border: 1px solid var(--gainsboro);
+    border-radius: 0;
     padding: 8px;
 }
 
@@ -105,22 +139,22 @@
     display: flex;
     align-items: center;
     column-gap: 8px;
-    padding: 8px 15px;
+    padding: 8px;
     background-color: var(--blue);
     z-index: 5;
     cursor: pointer;
-    border-radius: 40px;
+    border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .create-text{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     color: var(--white);
 }
 
 .create-icon {
-    font-size: 28px;
+    font-size: 20px;
     color: var(--white);
 }
 
@@ -132,7 +166,7 @@
 
     .view-button {
         font-size: 14px;
-        padding: 1px 8px;
+        padding: 6px 8px;
     }
 
     .today-button {
@@ -151,10 +185,6 @@
         font-size: 24px;
     }
 
-    // .button {
-    //     font-size: 16px;
-    //     padding: 2px 8px;
-    // }
 }
 
 @media screen and (max-width:476px) {
@@ -167,41 +197,15 @@
         padding: 10px;
     }
 
-    // .date-container {
-    //     font-size: 20px;
-    //     padding: 0px 6px;
-    // }
-
-    .view-button {
-        font-size: 13px;
-        padding: 1px 6px;
-    }
-
-    // .today-button {
-    //     font-size: 13px;
-    //     padding: 1px 6px;
-    // }
-
-    // .button {
-    //     font-size: 15px;
-    //     padding: 2px 6px;
-    // }
-
     .createicon-container {
         position: fixed;
         bottom: 30px;
         right: 30px;
-        // bottom: 8px;
-        // left: 50%;
-        // transform: translate(-50%, -50%);
         border-radius: 100%;
         padding: 13px 16px;
+        background-color: #b91afdee;
     }
 
-    .buttons{
-        position: absolute;
-        right: 10px;
-    }
     .create-text{
         display: none;
     }
@@ -224,15 +228,6 @@
     .button {
         font-size: 13px;
     }
-
-    // .navbar-left {
-    //     flex-direction: column;
-    //     row-gap: 5px;
-    // }
-
-    // .navbar-right {
-    //     justify-content: flex-start;
-    // }
 }
 
 @media screen and (max-width:380px) {
@@ -248,11 +243,6 @@
 
     .navbar-container{
         padding: 10px;
-    }
-
-    .buttons{
-        position: absolute;
-        right: 10px;
     }
 
     .view-button {

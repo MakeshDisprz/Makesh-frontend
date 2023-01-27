@@ -2,4 +2,14 @@
     border: 1px solid var(--gainsboro);
     border-radius: 4px;
     padding: 8px;
+    background-color: var(--blue);
+}
+
+.conflict-field{
+    display: flex;
+    column-gap: 5px
+}
+
+.conflict-text{
+    font-weight: 600;
 }

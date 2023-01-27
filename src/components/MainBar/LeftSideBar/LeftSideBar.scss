@@ -1,13 +1,53 @@
 @import '../../../styles/colors';
 
 .leftsidebar-container {
-    float: left;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
     padding: 8px;
     background-color: var(--white);
     border-right: 1px solid var(--gainsboro);
     position: sticky;
     top: 72px;
     height: calc(100vh - 72px);
+}
+
+.agenda {
+    border-radius: 4px;
+    padding:  8px;
+    padding-bottom: 0;
+    border: 1px solid var(--gainsboro);
+    width: 310px;
+
+}
+
+.agenda-header {
+    padding: 8px;
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: 6px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.agenda-body {
+    height: 200px;
+    overflow-y: scroll;
+    padding: 0 8px;
+}
+
+.today-events {
+    display: flex;
+    column-gap: 5px;
+    padding: 4px;
+    font-size: 14px;
+}
+
+.font-circle {
+    color: #bbb;
+}
+
+.agenda-title {
+    font-weight: 600;
 }
 
 @media screen and (max-width:998px) {
@@ -17,8 +57,19 @@
         top: 72px;
         z-index: 10;
     }
-    
-    .hide-sidebar{
+
+    .hide-sidebar {
         display: none;
+    }
+}
+
+@media screen and (max-width:496px) {
+    .agenda{
+        width:280px
+    }
+}
+@media screen and (max-width:320px) {
+    .agenda{
+        width:260px
     }
 }

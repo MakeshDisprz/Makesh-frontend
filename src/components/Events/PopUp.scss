@@ -1,8 +1,8 @@
 @import '../../styles/colors';
 
-.Modal-popup{
+.Modal-popup {
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 50%;
     right: auto;
     bottom: auto;
@@ -11,36 +11,39 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 20px;
     width: 350px;
+    outline: none;
+    border-radius: 4px;
 }
 
-.Overlay-popup{
+.Overlay-popup {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ffffff99;
+    background-color: #dddddd99;
     z-index: 10;
 }
 
-.popup-container{
+.popup-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    row-gap: 20px;
+    row-gap: 10px;
 }
 
-.popup-top{
+.popup-top {
     width: 100%;
-    border: 1px solid var(--gainsboro);
     border-radius: 4px;
     padding: 8px;
-    background-color: var(--blue);
-    // color: #fff;
+    background-color: var(--white);
+    // font-weight: 600;
+    display: flex;
+    justify-content: center;
 }
 
-.popup-center{
+.popup-center {
     height: 100px;
     width: 100%;
     display: flex;
@@ -49,17 +52,28 @@
     overflow-y: scroll;
 }
 
-.popup-bottom{
+.popup-bottom {
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
-.popup-button{
+.popup-button {
     cursor: pointer;
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
     color: #fff;
     background-color: var(--blue);
+}
+
+.close-container {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    color: var(--white);
+    cursor: pointer;
 }

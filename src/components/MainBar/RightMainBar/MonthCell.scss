@@ -1,7 +1,6 @@
 @import '../../../styles/colors';
 
-.month-cell{
-    cursor: pointer;
+.month-cell {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,22 +8,38 @@
     background-color: var(--white);
     border-collapse: collapse;
     border: 1px solid var(--gainsboro);
+    position: relative;
+    row-gap: 5px;
+    font-size: 14px;
 }
 
-.week-days{
+.week-days {
     height: 30px;
     border-bottom: 1px solid var(--gainsboro);
 }
 
-.month-cell:hover{
+.month-cell:hover {
     background-color: var(--gainsboro);
 }
 
-.today {
+.today-month {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--blue);
+    border-radius: 100%;
+    padding: 3px 5px;
+}
+.nottoday-month {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background-color: var(--blue);
+    border-radius: 100%;
+    padding: 3px 5px;
 }
 
-#active{
+#active {
     // background-color: var(--blue);
 }
 
@@ -40,6 +55,59 @@
     font-size: 12px;
 }
 
-.eventname-container{
+.eventname-container {
     width: 100%;
+}
+
+.events-container {
+    height: 150px;
+    // background-color: #dcdcdc;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    z-index: 10;
+    padding: 10px;
+    cursor: auto;
+}
+
+.close-container{
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.month-events {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    overflow-y: scroll;
+    cursor: auto;
+}
+
+.events-modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+    outline: none;
+}
+
+.events-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #dddddd99;
+    z-index: 10;
 }

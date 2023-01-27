@@ -51,6 +51,12 @@
     border: 1px solid var(--gainsboro);
     border-radius: 4px;
     padding: 8px;
+    display: flex;
+    column-gap: 10px;
+    cursor: auto;
+    background-color: var(--blue);
+    // font-weight: 600;
+    // color: #fff;
 }
 
 .logo-container {
@@ -59,9 +65,7 @@
 }
 
 .logo-image {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+    font-size: 28px;
 }
 
 @media screen and (max-width:998px) {

@@ -7,19 +7,20 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { appointmentService } from '../../apis/AppointmentAPI'
 import PopUp from './PopUp'
 import './CreateEvent.scss'
+import './EventDetails.scss'
 import { format } from 'date-fns';
 Modal.setAppElement('#root');
 
-export default function CreateEvent({ Id, Title, Start, End, showModal, setShowModal, day, popup, setPopUp, setStatus, setConflict }) {
+export default function CreateEvent({ data, setData, Id, Title, Start, End, showModal, setShowModal, day, popup, setPopUp, setStatus, setConflict }) {
 
     /** state to store the appointment title */
     const [title, setTitle] = useState(Title)
 
     /** state to store appointment startTime */
-    const [start, setStart] = useState(format(Start, 'yyyy-MM-dd hh:mm'))
+    const [start, setStart] = useState(format(Start, 'yyyy-MM-dd HH:mm'))
 
     /** state to store appointment endTime */
-    const [end, setEnd] = useState(format(End, 'yyyy-MM-dd hh:mm'))
+    const [end, setEnd] = useState(format(End, 'yyyy-MM-dd HH:mm'))
 
     /** state to show and hide warning modal */
     const [showWarn, setShowWarn] = useState(false)
@@ -35,7 +36,7 @@ export default function CreateEvent({ Id, Title, Start, End, showModal, setShowM
         else {
             appointmentService.post(title, new Date(start), new Date(end))
                 .then(result => {
-                    setStatus(result.message)
+                    setStatus(result.message);
                     setConflict(result.conflictAppointments)
                 })
             setShowModal(!showModal);
@@ -69,7 +70,7 @@ export default function CreateEvent({ Id, Title, Start, End, showModal, setShowM
                     <div className='modal-top'>
                         <div className='modal-header'> {Id ? "Update appointment" : "Add appointment"} </div>
                         <div className='modal-icon'>
-                            <FontAwesomeIcon icon={faXmark} onClick={() => setShowModal(!showModal)} /><div className='close-icon'>close</div> </div>
+                            <FontAwesomeIcon icon={faXmark} onClick={() => setShowModal(!showModal)} /><div className='close-text'>close</div> </div>
                     </div>
 
                     <div className='modal-center'>

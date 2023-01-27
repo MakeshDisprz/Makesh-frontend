@@ -8,13 +8,13 @@ import { faPencil, faTrash, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { appointmentService } from '../../apis/AppointmentAPI'
 import './AppointmentDetails.scss'
 
-export default function AppointmentDetails({ appointment, showEvent, setShowEvent, showDelete, setShowDelete, setContent, showEdit, setShowEdit }) {
+export default function AppointmentDetails({ data, setData, appointment, showEvent, setShowEvent, showDelete, setShowDelete, setContent, showEdit, setShowEdit }) {
 
     /** function to delete an appointment */
     const handleDelete = () => {
         appointmentService.deleteAppointment(appointment.id)
             .then(result => {
-                if (result == 204) {
+                if (result === 204) {
                     setContent("Appointment deleted successfully")
                 }
                 else {
@@ -27,7 +27,7 @@ export default function AppointmentDetails({ appointment, showEvent, setShowEven
 
     return (
         <Modal
-            isOpen={true}
+            isOpen={showEvent}
             onRequestClose={() => setShowEvent(!showEvent)}
             className="Modal"
             overlayClassName="Overlay"
@@ -52,13 +52,22 @@ export default function AppointmentDetails({ appointment, showEvent, setShowEven
                             <div className='close-icon'>Close</div>
                         </div>
                     </div>
-                    
+
                 </div>
 
                 <div className='details-bottom'>
-                    <div className='appointment-title'>{`Title: ${appointment.title}`}</div>
-                    <div className='appointment-start'>{`Date: ${format(new Date(appointment.startTime), 'MMM do yyyy')}`}</div>
-                    <div className='appointment-end'>{`Time: ${format(new Date(appointment.startTime), 'hh:mm a')} - ${format(new Date(appointment.endTime), 'hh:mm a')}`}</div>
+                    <div className='appointment-field'>
+                        <div className='field-text'>Title:</div>
+                        <div>{appointment.title}</div>
+                    </div>
+                    <div className='appointment-field'>
+                        <div className='field-text'>Date:</div>
+                        <div>{format(new Date(appointment.startTime), 'do MMM yyyy')}</div>
+                    </div>
+                    <div className='appointment-field'>
+                        <div className='field-text'>Time:</div>
+                        <div>{format(new Date(appointment.startTime), 'hh:mm a')} - {format(new Date(appointment.endTime), 'hh:mm a')}</div>
+                    </div>
                 </div>
 
             </div>

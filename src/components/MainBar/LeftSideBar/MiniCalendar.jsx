@@ -27,7 +27,7 @@ export default function MiniCalendar() {
   const nextMonth = () => setDay(add(day, { months: 1 }))
   const prevYear = () => setDay(sub(day, { years: 1 }))
   const nextYear = () => setDay(add(day, { years: 1 }))
-
+  
   /** handles date change */
   const handleDateClick = (index) => {
     const date = setDate(day, index);

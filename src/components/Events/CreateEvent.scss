@@ -23,19 +23,26 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
+    font-size: 18px;
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 3px 7px;
+    border-radius: 50%;
 }
 
-.close-icon {
+.close-text {
     position: absolute;
-    top: 24px;
+    top: 26px;
+    font-size: 14px;
     color: #fff;
     background-color: #555;
+    border-radius: 4px;
     padding: 8px;
     display: none;
 }
 
-.modal-icon:hover .close-icon {
+.modal-icon:hover .close-text {
     display: block;
 }
 
@@ -107,10 +114,6 @@
     display: flex;
 }
 
-.picker-container {
-    // margin-right: 100px;
-}
-
 @media screen and (max-width:676px) {
     .modal-top{
         // column-gap: 40px;
@@ -118,7 +121,7 @@
     .modal-header{
         font-size: 16px;
     }
-    .close-icon{
+    .close-text{
         font-size: 16px;
     }
     .modal-center p{
@@ -135,6 +138,7 @@
         padding: 6px;
     }
 }
+
 @media screen and (max-width:576px) {
     .modal-top{
         column-gap: 40px;
@@ -142,7 +146,7 @@
     .modal-header{
         font-size: 14px;
     }
-    .close-icon{
+    .close-text{
         font-size: 14px;
     }
     .modal-center p{
@@ -176,7 +180,7 @@
     .modal-header{
         font-size: 12px;
     }
-    .close-icon{
+    .close-text{
         font-size: 12px;
     }
     .modal-center p{
